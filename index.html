@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Final - Desarrollo Front-End (Nivel 2) ED.2021</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <form id="formAltaTlf" action="datosUsuario" method="post" autocomplete="on" class="formulario">
+        <h1>Formulario Información Alta Telefónica</h1>
+        <fieldset id="datosPersonales">
+            <legend>Datos Personales</legend>
+            <div class="control-group">
+                <label for="nombre" class="required">Nombre: </label>
+                <input type="text" name="nombre" id="nombre"  maxlength="30" required>
+            </div>
+            <div class="control-group">
+                <label for="apellidos" class="required">Apellidos: </label>
+                <input type="text" name="apellidos" id="apellidos" pattern="[^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$]{1,30}" maxlength="60" required>
+            </div>
+            <div class="control-group">
+                <label for="direccion" class="required">Dirección: </label>
+                <input type="text" name="direccion" id="direccion" pattern="[^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$]{1,60}" maxlength="60" required>
+            </div>
+            <div class="control-group">
+                <label for="CP" class="required">Código Postal: </label>
+                <input type="text" name="codigoPostal" id="CP" placeholder="01234" pattern="[0-9]{1,5}" title="El código postal debe incluir 5 cifras" required>
+            </div>
+            <div class="control-group">
+                <label for="localidad" class="required">Localidad: </label>
+                <input type="text" name="localidad" id="localidad" required>
+            </div>
+
+        </fieldset>
+        <fieldset id="datosContratacion">
+            <legend>Tipo de Contratación</legend>
+            <div class="group-inline">
+                <div class="control-group">
+                    <input type="radio" id="nuevaCont" name="tipoContrato" value="nuevaContratacion" checked>
+                    <label for="nuevaCont">Nueva contratación</label>
+                </div>
+                <div class="control-group">
+                    <input type="radio" id="portabilidad" name="tipoContrato" value="portabilidad">
+                    <label for="nuevaCont">Portabilidad</label>
+                </div>
+                <div class="control-group">
+                    <input type="radio" id="cambioCont" name="tipoContrato" value="cambioContrato">
+                    <label for="cambioCont">Cambio de contrato</label>
+                </div>
+            </div>
+            <div class="group-inline">
+                <div class="control-group">
+                    <label for="compActual">Elija la compañía actual: </label>
+                    <select name="companiaActual" id="compActual">
+                        <option value="Movistar">Movistar</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Vodafone">Vodafone</option>
+                        <option value="Yoigo">Yoigo</option>
+                        <option value="noComp">No tengo ninguna compañía</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="portabilidad">En caso de portabilidad, elija la nueva compañía: </label>
+                    <select name="portabilidad" id="portabilidad">
+                        <option value="Movistar">Movistar</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Vodafone">Vodafone</option>
+                        <option value="Yoigo">Yoigo</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset id="datosBanco">
+            <legend>Datos Bancarios</legend>
+            <div class="control-group">
+                <label for="pais">País: </label>
+                <input type="text" name="pais" id="pais" maxlength="2" disabled value="ES" class="disabled">
+            </div>
+            <div class="control-group">
+                <label for="iban" class="required">Control IBAN: </label>
+                <input type="number" name="iban" id="iban" min="0" max="99" placeholder="01" required>
+            </div>
+            <div class="control-group">
+                <label for="entidad" class="required">Entidad: </label>
+                <input type="number" name="entidad" id="entidad" min="0" max="9999" placeholder="0123" required>
+            </div>
+            <div class="control-group">
+                <label for="sucursal" class="required">Sucursal: </label>
+                <input type="number" name="sucursal" id="sucursal" min="0" max="9999" placeholder="0123" required>
+            </div>
+            <div class="control-group">
+                <label for="dc" class="required">DC: </label>
+                <input type="number" name="dc" id="dc" min="0" max="99" placeholder="01" required>
+            </div>
+            <div class="control-group">
+                <label for="dc" class="required">Cuenta: </label>
+                <input type="number" name="cuenta" id="cuenta" min="0" max="9999999999" placeholder="0123456789" required>
+            </div>
+        </fieldset>
+        <fieldset id="datosEstadistica">
+            <legend>Datos Estadísticos ¿Cómo nos conoció?</legend>
+            <div class="control-group">
+                <input type="checkbox" id="viaTv" name="viaTv" value="viaTv">
+                <label for="viaTv">A través de la TV</label>
+            </div>
+            <div class="control-group">
+                <input type="checkbox" id="viaRadio" name="viaRadio" value="viaRadio">
+                <label for="viaRadio">A través de la radio</label>
+            </div>
+            <div class="control-group">
+                <input type="checkbox" id="viaInt" name="viaInt" value="viaInt">
+                <label for="viaInt">A través de Internet</label>
+            </div>
+            <div class="control-group">
+                <input type="checkbox" id="viaOtros" name="viaOtros" value="viaOtros">
+                <label for="viaOtros">Otros</label>
+            </div>
+            <div class="control-group">
+                <label for="valoracion">Valoración de la compañía</label>
+                <input type="range" name="valoracion" id="valoracion" min="0" max="4">
+            </div>
+            <div class="control-group">
+                <label for="fechaEn">Fecha de la encuesta: </label>
+                <input type="date" id="fechaEn" name="fechaEn" value="2019-01-01" min="2019-01-01" max="2022-12-31">
+            </div>
+        </fieldset>
+        <div id="resultado" class="textExp">
+            <p>Los campos marcados con asterisco (*) son obligatorios.</p>
+        </div>
+        <div class="botones">
+            <button onclick="comprobarForm()" type="submit">Enviar Datos</button>
+            <button type="reset">Borrar Datos</button>
+        </div>
+        <div class="botonesExtra">           
+            <button onclick="mostrarValoracion()" type="button">Mostrar Valoración</button>            
+            <button onclick="mostrarCuenta()" type="button">Mostrar Cuenta</button>
+            <button onclick="mostrarDiaSemana()" type="button">Mostrar Día Semana</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
